@@ -54,18 +54,21 @@ To estimate the calculation time, set ESTIMATE_TIME to 1 in the Makefile.
 
 void print_welcomescreen(){ print_header_message(); print_info_message(); print_flags_message(); }
 
-void fatal(unsigned int errorcode, char** extrainfo) {
+void fatal(unsigned int errorcode, const char** extrainfo) {
   std::cerr << "Problem: ";
   switch(errorcode) {
   case 1:
     std::cerr << "No configuration file found";
     break;
-  case 2: //No help argument yet, maybe useful later...
+  case 2: //No --help argument yet, maybe useful later...
     std::cerr << "No arguments given, you might want to try running \"" << extrainfo[0] << " --help\"";
+    break;
+  case 3:
+    std::cerr << "Can't read HDF5 file '" << extrainfo[0] << "': (" << extrainfo[1] << ")";
     break;
   default:
     std::cerr << "Unknown error";
   }
-  std::cerr << ". Exiting.\n";
+  std::cerr << "\nExiting.\n";
   exit(errorcode);
 }

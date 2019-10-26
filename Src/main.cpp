@@ -25,12 +25,20 @@ int main(int argc, char *argv[]){
 
   verbose_message("\nStarting program...\n\n");
   debug_message("Starting program. The messages in red are debug messages. They may be turned off by setting DEBUG 0 in main.cpp\n");
-  if(argc < 2) fatal(1, argv);
+  if(argc < 2) fatal(1, (const char**) argv);
 
   /* Define General characteristics of the data */  
   int precision = 1, dim, is_complex;
 
-  H5::H5File *file = new H5::H5File(argv[1], H5F_ACC_RDONLY);
+#if DEBUG==0
+  H5::Exception::dontPrint();
+#endif
+  H5::H5File *file = NULL;
+  try { file = new H5::H5File(argv[1], H5F_ACC_RDONLY); }
+  catch( H5::FileIException &error ) {
+	  const char* extrainfo[2] = { argv[1], error.getCDetailMsg()};
+	  fatal(3, extrainfo);
+  }
   get_hdf5(&is_complex, file, (char *) "/IS_COMPLEX");
   get_hdf5(&precision,  file, (char *) "/PRECISION");
   get_hdf5(&dim,        file, (char *) "/DIM");

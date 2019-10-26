@@ -21,20 +21,11 @@ typedef int indextype;
 
 
 int main(int argc, char *argv[]){  
-  //(void) argc;
-    
-  print_header_message();
-  print_info_message();
-  print_flags_message();
-
-
+  print_welcomescreen();
 
   verbose_message("\nStarting program...\n\n");
   debug_message("Starting program. The messages in red are debug messages. They may be turned off by setting DEBUG 0 in main.cpp\n");
-  if(argc < 2){
-    std::cout << "No configuration file found. Exiting.\n";
-    exit(1);
-  }
+  if(argc < 2) fatal(1, argv);
 
   /* Define General characteristics of the data */  
   int precision = 1, dim, is_complex;

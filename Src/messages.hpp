@@ -51,3 +51,21 @@ To estimate the calculation time, set ESTIMATE_TIME to 1 in the Makefile.
 
 )ENDSTRING" );
 }
+
+void print_welcomescreen(){ print_header_message(); print_info_message(); print_flags_message(); }
+
+void fatal(unsigned int errorcode, char** extrainfo) {
+  std::cerr << "Problem: ";
+  switch(errorcode) {
+  case 1:
+    std::cerr << "No configuration file found";
+    break;
+  case 2: //No help argument yet, maybe useful later...
+    std::cerr << "No arguments given, you might want to try running \"" << extrainfo[0] << " --help\"";
+    break;
+  default:
+    std::cerr << "Unknown error";
+  }
+  std::cerr << ". Exiting.\n";
+  exit(errorcode);
+}

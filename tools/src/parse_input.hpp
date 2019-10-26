@@ -100,7 +100,7 @@ class shell_input{
         void parse_CondOpt2();
         void parse_DOS(char *argv[]);
         void parse_lDOS();
-        void parse_ARPES(int argc, char *argv[]);
+        void parse_ARPES();
         int get_num_exclusives();
 
 };

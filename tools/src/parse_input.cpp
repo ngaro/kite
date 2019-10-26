@@ -204,11 +204,11 @@ shell_input::shell_input(int argc, char *argv[]){
     // Run the input through each of these functions to find the relevant 
     // parameters to each of them
     parse_CondDC();
-    parse_DOS(argc, argv);
+    parse_DOS(argv);
     parse_lDOS();
-    parse_ARPES(argc, argv);
+    parse_ARPES();
     parse_CondOpt(argv);
-    parse_CondOpt2(argc, argv);
+    parse_CondOpt2();
 
     // Process the exclusive flag. If there are no exclusive functions, 
     // all will be calculated. If there's only one, that's the only one
@@ -534,7 +534,7 @@ bool is_key(std::string n){
   return n == "-T" or n == "-O" or n == "-F" or n == "-N" or n == "-X" or n == "-V" or n == "-E";
 }
 
-void shell_input::parse_ARPES(int argc, char* argv[]){
+void shell_input::parse_ARPES(){
     // This function looks at the command-line input pertaining to CondDC and
     // finds the parameters for the temperature "t", number of energy points "E", 
     // scattering parameter "S" and Fermi energy min, max and num "F"

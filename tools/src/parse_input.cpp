@@ -178,8 +178,8 @@ shell_input::shell_input(int argc, char *argv[]){
     // First, find the position of each of the following functions:
     valid_keys = std::vector<std::string>{"--DOS", "--CondOpt","--CondDC", "--CondOpt2", "--LDOS", "--ARPES"};
     len = valid_keys.size();   // length of valid_keys?
-    keys_pos = std::vector<int>(len, -1);
-    keys_len = std::vector<int>(len, -1);
+    keys_pos[0] = len;
+    keys_len[0] = len;
 
     int m = 0;
     for(int i = argc-1; i >= 0; i--){
@@ -192,8 +192,8 @@ shell_input::shell_input(int argc, char *argv[]){
             }
 
             if(arguments == valid_keys.at(j)){
-                keys_pos.at(j) = i;
-                keys_len.at(j) = m-1;
+                keys_pos[j] = i;
+                keys_len[j] = m-1;
                 m = 0;
                 break;
             }
@@ -272,9 +272,9 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
     CondDC_Exclusive = false;
     // Process CondDC
     int j = 2;
-    int pos = keys_pos.at(j);
+    int pos = keys_pos[j];
     if(pos != -1){
-        for(int k = 1; k < keys_len.at(j); k++){
+        for(int k = 1; k < keys_len[j]; k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
 
@@ -289,7 +289,7 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
             if(name == "-X" or n1 == "-X")
                 CondDC_Exclusive = true;
             if(name == "-F"){
-                if(k == keys_len.at(j) - 1){
+                if(k == keys_len[j] - 1){
                     CondDC_NumFermi = atoi(n1.c_str());
                     continue;
                 } else {
@@ -305,7 +305,7 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
                 }
             }
         }
-        if(keys_len.at(j) == 1){
+        if(keys_len[j] == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             CondDC_Exclusive = true;
@@ -334,9 +334,9 @@ void shell_input::parse_CondOpt(int argc, char* argv[]){
 
     // Process CondOpt
     int j = 1;
-    int pos = keys_pos.at(j);
+    int pos = keys_pos[j];
     if(pos != -1){
-        for(int k = 1; k < keys_len.at(j); k++){
+        for(int k = 1; k < keys_len[j]; k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
 
@@ -367,7 +367,7 @@ void shell_input::parse_CondOpt(int argc, char* argv[]){
                 CondOpt_NumFreq = atoi(n3.c_str());
             }
         }
-        if(keys_len.at(j) == 1){
+        if(keys_len[j] == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             CondOpt_Exclusive = true;
@@ -394,9 +394,9 @@ void shell_input::parse_CondOpt2(int argc, char* argv[]){
 
     // Process CondOpt2
     int j = 3;
-    int pos = keys_pos.at(j);
+    int pos = keys_pos[j];
     if(pos != -1){
-        for(int k = 1; k < keys_len.at(j); k++){
+        for(int k = 1; k < keys_len[j]; k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
 
@@ -424,7 +424,7 @@ void shell_input::parse_CondOpt2(int argc, char* argv[]){
                 CondOpt2_NumFreq = atoi(n3.c_str());
             }
         }
-        if(keys_len.at(j) == 1){
+        if(keys_len[j] == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             CondOpt2_Exclusive = true;
@@ -443,9 +443,9 @@ void shell_input::parse_DOS(int argc, char* argv[]){
     DOS_Name = "";
     DOS_Exclusive = false;
     DOS_kernel_parameter = -8888.8;
-    int pos = keys_pos.at(0);
+    int pos = keys_pos[0];
     if(pos != -1){
-        for(int k = 1; k < keys_len.at(0); k++){
+        for(int k = 1; k < keys_len[0]; k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
             if(name == "-E")
@@ -464,7 +464,7 @@ void shell_input::parse_DOS(int argc, char* argv[]){
             if(name == "-X" or n1 == "-X")
                 DOS_Exclusive = true;
         }
-        if(keys_len.at(0) == 1){
+        if(keys_len[0] == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             DOS_Exclusive = true;
@@ -489,6 +489,7 @@ void shell_input::parse_lDOS(int argc, char* argv[]){
     lDOS_Exclusive = false;
     lDOS_kernel = "";
     lDOS_kernel_parameter = -8888.8;
+    /*	What are you trying to do ? keys_len.at(4) and keys_pos-at(4) will always be out of range	-- Nikolas
     int pos = keys_pos.at(4);
     if(pos != -1){
         for(int k = 1; k < keys_len.at(4); k++){
@@ -514,6 +515,7 @@ void shell_input::parse_lDOS(int argc, char* argv[]){
             lDOS_Exclusive = true;
         }
     }
+    */
 
     if(lDOS_kernel != "green" && lDOS_kernel != "jackson" && lDOS_kernel != ""){
       std::cout << "lDOS: Invalid kernel specified.\n";
@@ -544,9 +546,9 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
     double v1, v2, v3;
 
     int j = 5;
-    int pos = keys_pos.at(j);
+    int pos = keys_pos[j];
     if(pos != -1){
-        for(int k = 1; k < keys_len.at(j); k++){
+        for(int k = 1; k < keys_len[j]; k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
             if(name == "-T")
@@ -562,7 +564,7 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
             if(name == "-E"){
                 // Find how many numbers are inside this parameter
                 int n_args = 0;
-                for(int ii = 1; ii < std::min(keys_len.at(j), argc-k-pos); ii++){
+                for(int ii = 1; ii < std::min(keys_len[j], argc-k-pos); ii++){
                     if(is_key(argv[k + pos + ii]))
                         break;
                     n_args = ii;
@@ -589,7 +591,7 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
 
               // Find how many numbers are inside this parameter
               int n_args = 0;
-              for(int ii = 1; ii < std::min(keys_len.at(j), argc-k-pos); ii++){
+              for(int ii = 1; ii < std::min(keys_len[j], argc-k-pos); ii++){
                   if(is_key(argv[k + pos + ii]))
                       break;
                   n_args = ii;

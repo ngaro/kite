@@ -82,8 +82,8 @@ class shell_input{
         // function names
         std::vector<std::string> valid_keys;
         int len;
-        std::vector<int> keys_pos;
-        std::vector<int> keys_len;
+        int keys_pos[2] = {0, -1};
+        int keys_len[2] = {0, -1};
 
         shell_input(int, char**);
         shell_input();

@@ -271,10 +271,12 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
     CondDC_Name = "";
     CondDC_Exclusive = false;
     // Process CondDC
+
+    /* What are you trying to do ? setting j to 2 will cause out of range reading	-- Nikolas
     int j = 2;
-    int pos = keys_pos[j];
+    int pos = keys_pos.at(j);
     if(pos != -1){
-        for(int k = 1; k < keys_len[j]; k++){
+        for(int k = 1; k < keys_len.at(j); k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
 
@@ -289,7 +291,7 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
             if(name == "-X" or n1 == "-X")
                 CondDC_Exclusive = true;
             if(name == "-F"){
-                if(k == keys_len[j] - 1){
+                if(k == keys_len.at(j) - 1){
                     CondDC_NumFermi = atoi(n1.c_str());
                     continue;
                 } else {
@@ -305,12 +307,13 @@ void shell_input::parse_CondDC(int argc, char *argv[]){
                 }
             }
         }
-        if(keys_len[j] == 1){
+        if(keys_len.at(j) == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             CondDC_Exclusive = true;
         }
     }
+    */
 }
 
 void shell_input::parse_CondOpt(int argc, char* argv[]){
@@ -393,10 +396,11 @@ void shell_input::parse_CondOpt2(int argc, char* argv[]){
     CondOpt2_Name = "";
 
     // Process CondOpt2
+    /* What are you trying to do ? setting j to 3 will cause out of range reading	-- Nikolas
     int j = 3;
-    int pos = keys_pos[j];
+    int pos = keys_pos.at(j);
     if(pos != -1){
-        for(int k = 1; k < keys_len[j]; k++){
+        for(int k = 1; k < keys_len.at(j); k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
 
@@ -424,12 +428,13 @@ void shell_input::parse_CondOpt2(int argc, char* argv[]){
                 CondOpt2_NumFreq = atoi(n3.c_str());
             }
         }
-        if(keys_len[j] == 1){
+        if(keys_len.at(j) == 1){
           std::string name = argv[1 + pos];
           if(name == "-X")
             CondOpt2_Exclusive = true;
         }
     }
+    */
 }
 
 void shell_input::parse_DOS(int argc, char* argv[]){
@@ -545,10 +550,11 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
     ARPES_freq = -8888;
     double v1, v2, v3;
 
+    /* What are you trying to do ? setting j to 5 will cause out of range reading	-- Nikolas
     int j = 5;
-    int pos = keys_pos[j];
+    int pos = keys_pos.at(j);
     if(pos != -1){
-        for(int k = 1; k < keys_len[j]; k++){
+        for(int k = 1; k < keys_len.at(j); k++){
             std::string name = argv[k + pos];
             std::string n1 = argv[k + pos + 1];
             if(name == "-T")
@@ -564,7 +570,7 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
             if(name == "-E"){
                 // Find how many numbers are inside this parameter
                 int n_args = 0;
-                for(int ii = 1; ii < std::min(keys_len[j], argc-k-pos); ii++){
+                for(int ii = 1; ii < std::min(keys_len.at(j), argc-k-pos); ii++){
                     if(is_key(argv[k + pos + ii]))
                         break;
                     n_args = ii;
@@ -591,7 +597,7 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
 
               // Find how many numbers are inside this parameter
               int n_args = 0;
-              for(int ii = 1; ii < std::min(keys_len[j], argc-k-pos); ii++){
+              for(int ii = 1; ii < std::min(keys_len.at(j), argc-k-pos); ii++){
                   if(is_key(argv[k + pos + ii]))
                       break;
                   n_args = ii;
@@ -624,6 +630,7 @@ void shell_input::parse_ARPES(int argc, char* argv[]){
             }
         }
     }
+    */
     debug_message("Left parse_ARPES\n");
 }
 

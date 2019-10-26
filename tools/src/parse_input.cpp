@@ -548,9 +548,9 @@ void shell_input::parse_ARPES(){
     ARPES_Temp = -8888;
     ARPES_Fermi = -8888;
     ARPES_freq = -8888;
+    /* What are you trying to do ? setting j to 5 will cause out of range reading	-- Nikolas
     double v1, v2, v3;
 
-    /* What are you trying to do ? setting j to 5 will cause out of range reading	-- Nikolas
     int j = 5;
     int pos = keys_pos.at(j);
     if(pos != -1){

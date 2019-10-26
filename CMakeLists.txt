@@ -63,6 +63,4 @@ add_definitions(-DCOMPILE_WAVEPACKET=${compile_wp})
 include_directories(${Src})
 target_link_libraries(${PROJECT_NAME} ${HDF5_CXX_LIBRARIES} )
 
-
-
-
+install (TARGETS ${PROJECT_NAME} DESTINATION bin)

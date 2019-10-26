@@ -1,5 +1,5 @@
-#define outcol "\033[1;31m"
-#define outres "\033[0m"
+#define SET_COLOR_LIGHTRED "\033[1;31m"
+#define SET_COLOR_DEFAULT "\033[0m"
 
 #ifndef DEBUG
 #define DEBUG 1
@@ -27,7 +27,7 @@
 
 #ifdef DEBUG
 	#if DEBUG==1
-		#define debug_message(VAR) std::cout << outcol << VAR << outres << std::flush
+		#define debug_message(VAR) std::cout << SET_COLOR_LIGHTRED << VAR << SET_COLOR_DEFAULT << std::flush
 		#define verbose_message(VAR) std::cout<<VAR<<std::flush
 	#else
 		#define debug_message(VAR) 

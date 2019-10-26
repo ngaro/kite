@@ -63,9 +63,9 @@
 #define VVERBOSE 0
 #define SSPRINT 0
 
-// These are the verbose and debug messages
-#define outcol "\033[1;31m"
-#define outres "\033[0m"
+// for switching colors in verbose and debug messages
+#define SET_COLOR_LIGHTRED "\033[1;31m"
+#define SET_COLOR_DEFAULT "\033[0m"
 
 #ifdef VERBOSE
 #if VERBOSE==1

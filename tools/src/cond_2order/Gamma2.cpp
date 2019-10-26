@@ -72,12 +72,9 @@ Eigen::Matrix<std::complex<U>, -1, -1> conductivity_nonlinear<U, DIM>::Gamma2shg
     local_cond = Eigen::Matrix<std::complex<U>, -1, -1>::Zero(N_energies, N_omegas);
     
     // Loop over the frequencies
-    //U w1, w2;
-    U w1, w2;
     std::complex<U> GammaEp, GammaEn, GammaE;
     for(int w = 0; w < N_omegas; w++){
-      w1 = frequencies2(w,0);
-      w2 = frequencies2(w,1);
+      U w2 = frequencies2(w,1);
 
       for(int e = 0; e < N_energies; e++){
         GammaEp = 0;

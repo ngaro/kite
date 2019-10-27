@@ -67,7 +67,6 @@
 #define SET_COLOR_LIGHTRED "\033[1;31m"
 #define SET_COLOR_DEFAULT "\033[0m"
 
-#ifdef VERBOSE
 #if VERBOSE==1
 #define verbose_message(VAR)              \
   _Pragma("omp master")                   \
@@ -75,9 +74,6 @@
     std::cout<<VAR<<std::flush;           \
   }                                       \
   _Pragma("omp barrier")
-#else
-#define verbose_message(VAR) 
-#endif
 #else
 #define verbose_message(VAR) 
 #endif

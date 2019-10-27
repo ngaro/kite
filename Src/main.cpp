@@ -16,10 +16,6 @@ class Simulation;
 #include "SimulationGlobal.hpp"
 #include "messages.hpp"
 
-typedef int indextype;
-
-
-
 int main(int argc, char *argv[]){  
   print_welcomescreen();
 

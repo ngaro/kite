@@ -48,6 +48,10 @@
 #define VERBOSE 1
 #endif
 
+#ifndef VVERBOSE
+#define VVERBOSE 0
+#endif
+
 #ifndef ESTIMATE_TIME
 #define ESTIMATE_TIME 0
 #endif
@@ -60,7 +64,6 @@
 // NGHOSTS is the extra length in each direction, to be used with the blocks of size TILE
 #define PATTERNS  4
 #define NGHOSTS   2
-#define VVERBOSE 0
 #define SSPRINT 0
 
 // for switching colors in verbose and debug messages
@@ -79,7 +82,6 @@
 #endif
 
 
-#ifdef VVERBOSE
 #if VVERBOSE==1
 #define vverbose_message(VAR)              \
   _Pragma("omp master")                   \
@@ -90,16 +92,9 @@
 #else
 #define vverbose_message(VAR) 
 #endif
-#else
-#define vverbose_message(VAR) 
-#endif
 
-#ifdef DEBUG
 #if DEBUG==1
 #define debug_message(VAR) std::cout<<VAR<<std::flush; 
-#else
-#define debug_message(VAR) 
-#endif
 #else
 #define debug_message(VAR) 
 #endif

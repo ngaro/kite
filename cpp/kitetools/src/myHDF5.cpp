@@ -20,10 +20,10 @@ H5::DataType DataTypeFor<long double>::value = H5::PredType::NATIVE_LDOUBLE;
 
 
 template <typename T>
-typename std::enable_if<is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  char * name) {
+typename std::enable_if<kt::is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  char * name) {
   H5::DataSet dataset = H5::DataSet(file->openDataSet(name));
   H5::CompType complex_data_type(sizeof(l[0]));
-  typedef typename extract_value_type<T>::value_type value_type;
+  typedef typename kt::extract_value_type<T>::value_type value_type;
   
   complex_data_type.insertMember("r", 0, DataTypeFor<value_type>::value);
   complex_data_type.insertMember( "i", sizeof(value_type), DataTypeFor<value_type>::value);
@@ -31,16 +31,16 @@ typename std::enable_if<is_tt<std::complex, T>::value, void>::type get_hdf5(T * 
 }
 
 template <typename T>
-typename std::enable_if<!is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  char * name) {
+typename std::enable_if<!kt::is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  char * name) {
   H5::DataSet dataset = H5::DataSet(file->openDataSet(name));
   dataset.read(l, DataTypeFor<T>::value);
 }
 
 template <typename T>
-typename std::enable_if<is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  std::string & name) {
+typename std::enable_if<kt::is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  std::string & name) {
   H5::DataSet dataset = H5::DataSet(file->openDataSet(name));
   H5::CompType complex_data_type(sizeof(l[0]));
-  typedef typename extract_value_type<T>::value_type value_type;
+  typedef typename kt::extract_value_type<T>::value_type value_type;
   
   complex_data_type.insertMember("r", 0, DataTypeFor<value_type>::value);
   complex_data_type.insertMember( "i", sizeof(value_type), DataTypeFor<value_type>::value);
@@ -48,7 +48,7 @@ typename std::enable_if<is_tt<std::complex, T>::value, void>::type get_hdf5(T * 
 }
 
 template <typename T>
-typename std::enable_if<!is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  std::string & name) {
+typename std::enable_if<!kt::is_tt<std::complex, T>::value, void>::type get_hdf5(T * l, H5::H5File *  file,  std::string & name) {
   H5::DataSet dataset = H5::DataSet(file->openDataSet(name));
   dataset.read(l, DataTypeFor<T>::value);
 }
@@ -57,7 +57,7 @@ typename std::enable_if<!is_tt<std::complex, T>::value, void>::type get_hdf5(T *
 
 
 template <typename T>
-typename std::enable_if<!is_tt<std::complex, T>::value, void>::type write_hdf5(const Eigen::Array<T, -1, -1 > & mu,
+typename std::enable_if<!kt::is_tt<std::complex, T>::value, void>::type write_hdf5(const Eigen::Array<T, -1, -1 > & mu,
                                                                                              H5::H5File *  file,
                                                                                              const std::string  name) {
   hsize_t    dims[2], chunk_dims[2]; // dataset dimensions
@@ -82,7 +82,7 @@ typename std::enable_if<!is_tt<std::complex, T>::value, void>::type write_hdf5(c
 
 
 template <typename T>
-typename std::enable_if<is_tt<std::complex, T>::value, void>::type write_hdf5(const Eigen::Array<T, -1, -1 > & mu,
+typename std::enable_if<kt::is_tt<std::complex, T>::value, void>::type write_hdf5(const Eigen::Array<T, -1, -1 > & mu,
 									      H5::H5File * file,
                                                                                         const std::string name) {
   hsize_t    dims[2], chunk_dims[2]; // dataset dimensions
@@ -90,7 +90,7 @@ typename std::enable_if<is_tt<std::complex, T>::value, void>::type write_hdf5(co
   dims[1] = chunk_dims[1] = mu.rows();      
   H5::DataSet dataset;
   H5::DataSpace dataspace = H5::DataSpace(2, dims );
-  typedef typename extract_value_type<T>::value_type value_type;
+  typedef typename kt::extract_value_type<T>::value_type value_type;
   
   H5::CompType complex_datatype(sizeof(T));
   complex_datatype.insertMember("r", 0, DataTypeFor<value_type>::value);

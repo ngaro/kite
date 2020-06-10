@@ -7,10 +7,10 @@
 #include <Eigen/Dense>
 #include <complex>
 #include "H5Cpp.h"
-#include "../parse_input.hpp"
-#include "../systemInfo.hpp"
-#include "conductivity_dc.hpp"
-#include "../functions.hpp"
+#include "parse_input.hpp"
+#include "systemInfo.hpp"
+#include "cond_dc/conductivity_dc.hpp"
+#include "functions.hpp"
 #include <fstream>
 
 
@@ -87,7 +87,7 @@ Eigen::Matrix<std::complex<U>, -1, -1> conductivity_dc<U, DIM>::triple_product(
 
 #pragma omp critical
       {
-      GammaE += 2*LocalGammaE.imag();
+      GammaE.real() += 2*LocalGammaE.imag();
       }
     }
 #pragma omp barrier

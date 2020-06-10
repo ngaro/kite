@@ -11,9 +11,10 @@ std::complex<T> integrate(Eigen::Matrix<T, -1, 1> energies, Eigen::Matrix<std::c
 template <typename T>
 T fermi_function(T energy, T mu, T beta);
 
-
+namespace kt{
 std::string num2str3(int dir_num);
 std::string num2str2(int dir_num);
+}
 template <typename T>
 std::complex<T> contract1(
     std::function<T(int, T)> f0, int N_moments, 

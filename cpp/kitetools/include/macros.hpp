@@ -2,7 +2,7 @@
 #define outres "\033[0m"
 
 #ifndef DEBUG
-#define DEBUG 1
+#define DEBUG 0
 #endif
 
 #ifndef VERBOSE
@@ -17,18 +17,18 @@
 
 #ifdef VERBOSE
 	#if VERBOSE==1
-		#define verbose_message(VAR) std::cout<<VAR<<std::flush
+		#define verbose_message_tools(VAR) std::cout<<VAR<<std::flush
 	#else
-		#define verbose_message(VAR) 
+		#define verbose_message_tools(VAR)
 	#endif
 #else
-	#define verbose_message(VAR) 
+	#define verbose_message_tools(VAR)
 #endif
 
 #ifdef DEBUG
 	#if DEBUG==1
 		#define debug_message(VAR) std::cout << outcol << VAR << outres << std::flush
-		#define verbose_message(VAR) std::cout<<VAR<<std::flush
+		#define verbose_message_tools(VAR) std::cout<<VAR<<std::flush
 	#else
 		#define debug_message(VAR) 
 	#endif

@@ -30,6 +30,7 @@ template float fermi_function(float, float, float);
 template double fermi_function(double, double, double);
 template long double fermi_function(long double, long double, long double);
 
+namespace kt{
 std::string num2str3(int dir_num){
   std::string dir;
  
@@ -121,7 +122,7 @@ std::string num2str2(int dir_num){
   }
   return dir;
 }
-
+}
 
 template <typename T>
 std::complex<T> contract1(

@@ -30,7 +30,7 @@ int main(int argc, char *argv[]){
   print_info_message();
   print_flags_message();
 
-  verbose_message("\nStarting program...\n\n");
+  verbose_message_tools("\nStarting program...\n\n");
 
   choose_simulation_type(argv[1], variables);
   verbose_message("Complete.\n");

@@ -44,14 +44,14 @@ void calculate(char *name, shell_input & variables){
   info.read();
   info.print_info();
 
-  verbose_message("----------------- CALCULATIONS ----------------- \n");
+  verbose_message_tools("----------------- CALCULATIONS ----------------- \n");
   arpes<U, DIM>                   arpes(info, variables); 
   ldos<U, DIM>                    lDOS(info, variables); 
   dos<U, DIM>                     DOS(info, variables); 
   conductivity_dc<U, DIM>         condDC(info, variables);
   conductivity_optical<U, DIM>    condOpt(info, variables);
   conductivity_nonlinear<U, DIM>  condOpt2(info, variables);
-  verbose_message("------------------------------------------------ \n\n");
+  verbose_message_tools("------------------------------------------------ \n\n");
 
 
 	debug_message("Left calculate_simple.\n");

@@ -6,6 +6,8 @@
 /****************************************************************/
 
 #include <type_traits>
+
+namespace kt{
 /*
   Auxiliar code to define specialized methods in templated classes depending on the argument T is complex:
 
@@ -44,3 +46,4 @@ struct extract_value_type<X<T, Args...>>   //specialization
   typedef T value_type;
 };
 
+}

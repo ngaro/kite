@@ -10,10 +10,10 @@
 #include <vector>
 #include <iostream>
 #include "H5Cpp.h"
-#include "../parse_input.hpp"
-#include "../systemInfo.hpp"
-#include "../functions.hpp"
-#include "conductivity_2order.hpp"
+#include "parse_input.hpp"
+#include "systemInfo.hpp"
+#include "functions.hpp"
+#include "cond_2order/conductivity_2order.hpp"
 #include <omp.h>
 
 template <typename U, unsigned DIM>

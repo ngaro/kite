@@ -173,7 +173,7 @@ bool conductivity_optical<T, DIM>::fetch_parameters(){
   // Fetch the direction of the conductivity and convert it to a string
   std::string dirName = "/Calculation/conductivity_optical/";
   get_hdf5(&direction, &file, (char*)(dirName+"Direction").c_str());									
-  std::string dirString = num2str2(direction);
+  std::string dirString = kt::num2str2(direction);
 
 	debug_message("Fetching NumMoments, Temperature and NumPoints.\n");
   // Fetch the number of Chebyshev Moments, temperature and number of points

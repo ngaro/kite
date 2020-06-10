@@ -1,3 +1,4 @@
+#include <vector>
 
 class shell_input{
     // Set of parameters that may be passed through the shell

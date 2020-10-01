@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 """ Honeycomb lattice with vacancy disorder
 
@@ -26,7 +26,7 @@ import pybinding as pb
 
 def honeycomb_lattice(onsite=(0, 0)):
     """Make a honeycomb lattice with nearest neighbor hopping
-    
+
     Parameters
     ----------
     onsite : tuple or list

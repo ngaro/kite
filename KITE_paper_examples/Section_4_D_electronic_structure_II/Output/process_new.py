@@ -33,7 +33,7 @@ def process_orb(ORB):
     non_normalized_values = []
 
     for i in range(N):
-        line = a[i].split(" ") 
+        line = a[i].split(" ")
         i0 = int(line[0])
         i1 = int(line[1])
         orb = int(line[2])
@@ -48,7 +48,7 @@ def process_orb(ORB):
     # Now we have to find the points that are inside this window
     totalu = np.zeros([Ny, Nx])
     MAX = max(non_normalized_values)*2.0
-    
+
     for i in range(count):
         print(i,count)
         x, y, variance, amplitudeu = xs[i], ys[i], non_normalized_values[i]/MAX, non_normalized_values[i]

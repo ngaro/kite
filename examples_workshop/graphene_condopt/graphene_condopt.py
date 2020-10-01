@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 
 import numpy as np
@@ -56,21 +56,21 @@ NumMoments  = 512
 
 energy_scale = 3.1
 configuration = kite.Configuration(
-    divisions=[divX, divY], 
-    length=[sizeX, sizeY], 
-    boundaries=[True, True], 
-    is_complex=False, 
-    precision=0, 
-    spectrum_range=[-energy_scale, energy_scale]) 
+    divisions=[divX, divY],
+    length=[sizeX, sizeY],
+    boundaries=[True, True],
+    is_complex=False,
+    precision=0,
+    spectrum_range=[-energy_scale, energy_scale])
 
-calculation = kite.Calculation(configuration) 
+calculation = kite.Calculation(configuration)
 
 calculation.conductivity_optical(
-    num_points=256, 
-    num_moments=NumMoments, 
-    num_random=1, 
-    num_disorder=1, 
-    direction="xx", 
-    temperature=0.01) 
+    num_points=256,
+    num_moments=NumMoments,
+    num_random=1,
+    num_disorder=1,
+    direction="xx",
+    temperature=0.01)
 
 kite.config_system(lattice, configuration, calculation, filename="graphene_condopt.h5")

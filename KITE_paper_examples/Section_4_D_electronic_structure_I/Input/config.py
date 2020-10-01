@@ -22,7 +22,7 @@ c0 = 0.335                                # [nm] interlayer spacing
 def bilayer_graphene_rashba():
 
   lat = pb.Lattice(
-      a1=[a/2,  a/2 * sqrt(3)], 
+      a1=[a/2,  a/2 * sqrt(3)],
       a2=[-a/2, a/2 * sqrt(3)])
 
   lat.add_sublattices(
@@ -160,7 +160,7 @@ moments = int(sys.argv[2])
 LIM = 10
 nx = ny = 4
 lx = ly = int(sys.argv[1])
-weights = [float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]), 
+weights = [float(sys.argv[4]), float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]),
            float(sys.argv[8]), float(sys.argv[9]), float(sys.argv[10]), float(sys.argv[11])]
 
 configuration = kite.Configuration(divisions=[nx, ny], length=[lx, ly], boundaries=[True, True],

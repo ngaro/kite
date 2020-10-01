@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 """ Twisted bilayer graphene, loading a predefined lattice
 
@@ -16,7 +16,7 @@
     Configuration : size of the system flexible, with domain decomposition, periodic boundary conditions,
                     double precision, automatic scaling;
     Calculation : dos;
-   
+
 
 """
 

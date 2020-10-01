@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 import pybinding as pb
 import sys
@@ -213,7 +213,7 @@ struc_disorder_3 = kite.StructuralDisorder(lattice, position=[[d1,d2]])
 struc_disorder_1.add_vacancy('M1')
 struc_disorder_2.add_vacancy('M2')
 struc_disorder_3.add_vacancy('M3')
-disorder_structural = [struc_disorder_1, struc_disorder_2, struc_disorder_3]  
+disorder_structural = [struc_disorder_1, struc_disorder_2, struc_disorder_3]
 
 
 nx = ny = 4

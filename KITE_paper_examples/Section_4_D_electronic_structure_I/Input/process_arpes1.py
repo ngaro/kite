@@ -13,7 +13,7 @@ f = open(name,"r")
 whole = f.readlines()
 
 
-# inside that file, find where is each field. There are three fields: 
+# inside that file, find where is each field. There are three fields:
 # list of energies, list of k-vectors and the arpes matrix
 print("Processing file: finding location of each dataset. ", end="")
 cutarpes, cutenergies, cutvectors = -1, -1, -1

@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 import numpy as np
 import matplotlib.pyplot
@@ -28,7 +28,7 @@ ys = []
 values = []
 
 for i in range(N):
-    line = a[i].split(" ") 
+    line = a[i].split(" ")
     i0 = int(line[0])
     i1 = int(line[1])
     orb = int(line[2])

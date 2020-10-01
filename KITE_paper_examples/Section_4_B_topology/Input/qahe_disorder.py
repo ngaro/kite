@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 """ Honeycomb lattice with Kane-Mele, Rashba SOC model and Exchange """
 
@@ -133,7 +133,7 @@ disorder.add_disorder(['Bup', 'Bdown'], 'Uniform', +0.0, 0.1)
 
 # number of decomposition parts in each direction of matrix.
 nx = 4
-ny = 4 # Assumes nx * ny = 16 cores 
+ny = 4 # Assumes nx * ny = 16 cores
 
 # number of unit cells in each direction.
 lx = 2048
@@ -157,7 +157,7 @@ calculation = kite.Calculation(configuration)
 calculation.conductivity_dc(num_points=6000, num_moments=2048, num_random=1, num_disorder=1,
                             direction='xy', temperature=1)
 
-# Optical conductivity 
+# Optical conductivity
 calculation.conductivity_optical(num_points=200, num_moments=2048, num_random=1, num_disorder=1,
                             direction='xx')
 

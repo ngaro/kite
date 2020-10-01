@@ -28,7 +28,7 @@ def process_orb(ORB):
     non_normalized_values = []
 
     for i in range(N):
-        line = a[i].split(" ") 
+        line = a[i].split(" ")
         i0 = int(line[0])
         i1 = int(line[1])
         orb = int(line[2])

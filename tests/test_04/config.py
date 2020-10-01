@@ -49,9 +49,9 @@ disorder.add_disorder('A', 'Uniform', 0.0, W*0.5/np.sqrt(3))
 
 nx = ny = 2
 
-configuration = kite.Configuration(divisions=[nx, ny], length=[L, L], boundaries=[True, True], is_complex=False, precision=0, spectrum_range=[-energy_scale, energy_scale]) 
+configuration = kite.Configuration(divisions=[nx, ny], length=[L, L], boundaries=[True, True], is_complex=False, precision=0, spectrum_range=[-energy_scale, energy_scale])
 
 
-calculation = kite.Calculation(configuration) 
+calculation = kite.Calculation(configuration)
 calculation.singleshot_conductivity_dc(energy=[(n/100.0 - 0.5)*2 for n in range(11)], num_moments=64, num_random=1, num_disorder=1,direction='xx', eta=0.02)
 kite.config_system(lattice, configuration, calculation, disorder=disorder, filename='config.h5')

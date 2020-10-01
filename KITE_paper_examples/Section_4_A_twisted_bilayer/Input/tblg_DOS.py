@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 import os
 import pybinding as pb
@@ -71,7 +71,7 @@ def load_ovito_lattice(name):
     return _x_coord, _y_coord, _z_coord, _atom_type, _l1, _l2, _l3
 
 
-# WARNING: the calculation ran with parameters given here will run for at least 72h 
+# WARNING: the calculation ran with parameters given here will run for at least 72h
 # load an xyz file, relaxed or unrelaxed
 name = 'relaxed_tblg_1.050.xyz'
 

@@ -65,7 +65,7 @@ def graphene_initial(onsite=(0, 0)):
     # node3 = [[+0,+1],'B']
     # node4 = [[+0,+1],'A']
     # node5 = [[-1,+1],'B']
-    
+
     # struc_disorder_one = kite.StructuralDisorder(lat, position=[[64,64], [64,32], [32, 32]])
     struc_disorder_one = kite.StructuralDisorder(lat, position=[[32, 32]])
     struc_disorder_one.add_structural_disorder(
@@ -89,10 +89,10 @@ def graphene_initial(onsite=(0, 0)):
         # (*node0, *node3, rho/EnergyScale),
         # (*node1, *node4, rho/EnergyScale),
         # (*node2, *node5, rho/EnergyScale),
-        # in this way we can add onsite disorder again        
+        # in this way we can add onsite disorder again
         (*node0, limp)
     )
-    
+
     # if there is disorder it should be returned separately from the lattice
     return lat, disorder, [struc_disorder_one]
 

@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 """ DOS and DC conductivity of the Haldane model
 
@@ -89,6 +89,6 @@ calculation.conductivity_dc(num_points=1000, num_moments=256, num_random=50, num
 # configure the *.h5 file
 kite.config_system(lattice, configuration, calculation, filename='haldane.h5',
                    disorder=disorder)
-# ATTENTION: to generate  the conductivity data file for a desired window of Fermi energies, please use 
-#./KITE-tools h5_file.h --CondDC -F Emin Emax NumPoints 
+# ATTENTION: to generate  the conductivity data file for a desired window of Fermi energies, please use
+#./KITE-tools h5_file.h --CondDC -F Emin Emax NumPoints
 #See ./KITE-tools --help for more options

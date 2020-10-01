@@ -1,20 +1,20 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 """ Phosphorene DOS, same script can be used for conductivity xx and xy
 
     Lattice : Bilayer phosphorene;
     Disorder : None;
-    Configuration : size of the system 14336x14336, 
-                    without domain decomposition (nx=7 ny=4), 
+    Configuration : size of the system 14336x14336,
+                    without domain decomposition (nx=7 ny=4),
                     periodic boundary conditions,
                     double precision, automatic scaling;
     Calculation : DOS;

@@ -12,7 +12,7 @@ f = open(name,"r")
 whole = f.readlines()
 
 
-# inside that file, find where is each field. There are three fields: 
+# inside that file, find where is each field. There are three fields:
 # list of energies, list of k-vectors and the arpes matrix
 print("Processing file: finding location of each dataset. ", end="")
 cutarpes, cutenergies, cutvectors = -1, -1, -1
@@ -59,8 +59,8 @@ num_vectors = len(kvectors)
 nvectors = np.linspace(1, num_vectors, num_vectors)
 print("Number of k vectors: ", num_vectors,"\n")
 print(kvectors)
-kx = np.zeros(num_vectors) 
-ky = np.zeros(num_vectors) 
+kx = np.zeros(num_vectors)
+ky = np.zeros(num_vectors)
 for i,k in enumerate(kvectors):
     kk = k[:-1].split(" ")
     kx[i] = float(kk[0])

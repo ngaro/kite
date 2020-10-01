@@ -1,13 +1,13 @@
-"""       
-        ##############################################################################      
-        #                        KITE | Release  1.0                                 #      
-        #                                                                            #      
-        #                        Kite home: quantum-kite.com                         #           
-        #                                                                            #      
-        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #       
-        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #      
-        #                                                                            #      
-        ##############################################################################      
+"""
+        ##############################################################################
+        #                        KITE | Release  1.0                                 #
+        #                                                                            #
+        #                        Kite home: quantum-kite.com                         #
+        #                                                                            #
+        #  Developed by: Simao M. Joao, Joao V. Lopes, Tatiana G. Rappoport,         #
+        #  Misa Andelkovic, Lucian Covaci, Aires Ferreira, 2018-2019                 #
+        #                                                                            #
+        ##############################################################################
 """
 import kite
 import numpy as np
@@ -45,7 +45,7 @@ def graphene_initial(onsite=(0, 0)):
     node1 = [[+0,+0],'B']
     node2 = [[-1,+0],'B']
     node3 = [[-1,+1],'B']
-    
+
     struc_disorder_one = kite.StructuralDisorder(lat, position=[[32, 32]])
     struc_disorder_one.add_structural_disorder(
         (*node0, *node1, timp),
@@ -53,7 +53,7 @@ def graphene_initial(onsite=(0, 0)):
         (*node0, *node3, timp),
         (*node0, limp)
     )
-    
+
     return lat, [struc_disorder_one]
 
 lattice, disorded_structural = graphene_initial()

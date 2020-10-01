@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 # This is a comment
-"""	
-This is a Python Script created to plot 2D density plot given a x,y,z file. 
+"""
+This is a Python Script created to plot 2D density plot given a x,y,z file.
 It was created by Jose Hugo Garcia  Aguilar during his post-doctoral fellowship,
  at the ICTP-SAIFR institue of IFT UNESP (2015-2016) and modified completely by Tatiana Rappoport in 2019 :)
-	
+
 """
 #IMPORTING THE NECESSARY MODULES
 import argparse							#Used to parse parameters to the Python Script
@@ -75,8 +75,8 @@ if (var.mean):
 
 else:
 	print ("Option in --scale is not defined, linear used")
-	
-#Multiply the var.sample parameter by 1j so that the integer part of its magnitude is interpreted as 
+
+#Multiply the var.sample parameter by 1j so that the integer part of its magnitude is interpreted as
 #specifying the number of points to create between the start and stop values, where the stop value is inclusive.
 
 Z=np.log(Z)
@@ -89,7 +89,7 @@ var.sample=var.sample*1j
 #Creates the grid
 grid_x, grid_y = np.mgrid[0:(xmax-xmin):var.sample, 0:(ymax-ymin):var.sample]
 #Creates the interpolation of the z value:
-#						Point (X ,Y ,     Z ;  points to interp.	Used Method 
+#						Point (X ,Y ,     Z ;  points to interp.	Used Method
 grid_z = griddata( np.transpose([x,y]) ,  Z, (grid_x, grid_y)	, method=var.dinterpolation )
 grid_z0 = griddata( np.transpose([x,y]) , Z0, (grid_x, grid_y)	, method=var.dinterpolation )
 grid_z1 = griddata( np.transpose([x,y]) , Z1, (grid_x, grid_y)	, method=var.dinterpolation )
